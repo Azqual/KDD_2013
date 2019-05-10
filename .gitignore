@@ -1,0 +1,5 @@
+##ignore this file##
+/__pycache__/
+/data/
+/.idea/
+*.pyc
