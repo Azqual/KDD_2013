@@ -15,7 +15,7 @@ importlib.reload(sys)
 # fieldnames = ['first_name', 'last_name']
 # [{'first_name': 'Baked', 'last_name': 'Beans'}, {'first_name': 'Lovely', 'last_name': 'Spam'}]
 def write_dict_to_csv(fieldnames, contents, to_file):
-    with open(to_file, 'w') as csvfile:
+    with open(to_file, 'w',encoding='UTF-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(contents)
@@ -25,7 +25,7 @@ def write_dict_to_csv(fieldnames, contents, to_file):
 def read_dict_from_csv(in_file):
     if not os.path.exists(in_file):
         return []
-    with open(in_file) as csvfile:
+    with open(in_file,encoding='UTF-8') as csvfile:
         return list(csv.DictReader(csvfile))
 
 
@@ -76,12 +76,12 @@ def mergeFeatures(feature_list, name = ""):
     return merged_feature
 
 def write_example_list_to_file(example_list, to_file):
-    with open(to_file, "w") as fout:
+    with open(to_file, "w",encoding='UTF-8') as fout:
         fout.write("\n".join([example.content + " # " + example.comment for example in example_list]))
 
 
 def write_example_list_to_arff_file(example_list, dimension, to_file):
-    with open(to_file, "w") as fout:
+    with open(to_file, "w",encoding='UTF-8') as fout:
         out_lines = []
 
         out_lines.append("@relation kdd")

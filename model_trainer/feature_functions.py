@@ -196,6 +196,6 @@ def Levenshtein_distance(input_x, input_y):
 
 
 if __name__ == '__main__':
-    print (Levenshtein_distance("abc", "ab"))
+    print (Levenshtein_distance("abc", "bc"))
 
 

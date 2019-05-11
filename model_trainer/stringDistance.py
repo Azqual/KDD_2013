@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #encoding: utf-8
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+import importlib,sys
+importlib.reload(sys)
+# sys.setdefaultencoding('utf-8')
 sys.path.append("../")
 import config
 import json

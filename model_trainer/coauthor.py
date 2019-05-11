@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 #encoding: utf-8
+# coding=UTF-8
 import os
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+import importlib,sys
+importlib.reload(sys)
+# sys.setdefaultencoding('utf-8')
 sys.path.append("../")
 import util
 import json
@@ -38,7 +40,7 @@ def get_top_k_coauthors(paper_author_path, k, to_file):
                 dict_author_to_coauthor[authors[i]][authors[j]] += 1
                 dict_author_to_coauthor[authors[j]][authors[i]] += 1
 
-    print "取 top k..."
+    print ("取 top k...")
     # 取 top k
     # authorid --> { author1: 100, author2: 45}
     res = {}
@@ -47,7 +49,7 @@ def get_top_k_coauthors(paper_author_path, k, to_file):
         for coauthorId, freq in dict_author_to_coauthor[authorId].most_common(k):
             res[authorId][coauthorId] = freq
 
-    print "dump..."
+    print ("dump...")
     json.dump(res, open(to_file, "w"), encoding="utf-8")
 
 

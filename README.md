@@ -301,6 +301,7 @@ python evalution.py gold_file_path pred_file_path
 ####3. journalid，conferenceid，year
 把paper表的journalid，conferenceid和year也作为特征加进去，我的理解journalid和conferenceid可以看做是论文的一个类标签（label），年份year也可以看做是一个label。
 
+
 ####4. keyword信息
 作者A写过的论文的keyword构成一个集合X，一篇论文B的keyword构成一个集合Y，这里说的keyword是论文的title和keyword分词后得到的单词，对于一个作者论文对（A，B）计算他们的keyword的交集：X∩Y。
 每个单词可以类似tf-idf的分数，最后把属于X∩Y的单词的分数累加起来作为一维新的特征。
