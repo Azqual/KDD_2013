@@ -57,19 +57,19 @@ if __name__ == "__main__":
     feature_function_list = [
         coauthor_1,
         coauthor_2,
-        # stringDistance_1,
-        # stringDistance_2,
+        stringDistance_1,
+        stringDistance_2,
     ]
 
     ''' 分类器 '''
     # 决策树，NB，等
     # classifier = Classifier(skLearn_DecisionTree())
-    classifier = Classifier(skLearn_NaiveBayes())
+    # classifier = Classifier(skLearn_NaiveBayes())
     # classifier = Classifier(skLearn_svm())
     # classifier = Classifier(skLearn_lr())
     # classifier = Classifier(skLearn_KNN())
     # classifier = Classifier(sklearn_RandomForestClassifier())
-    # classifier = Classifier(skLearn_AdaBoostClassifier())
+    classifier = Classifier(skLearn_AdaBoostClassifier())
     # classifier = Classifier(sklearn_VotingClassifier())
 
     ''' model path '''
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         = json.load(open(config.PAPERIDAUTHORID_TO_NAME_AND_AFFILIATION_FILE), encoding="utf-8")
     # 使用pandas加载csv数据
     PaperAuthor = pandas.read_csv(config.PAPERAUTHOR_FILE)  # 加载 PaperAuthor.csv 数据
-    Author = pandas.read_csv(config.AUTHOR_FILE) # 加载 Author.csv 数据
+    Author = pandas.read_csv(config.AUTHOR_FILE,encoding = "ISO-8859-1") # 加载 Author.csv 数据
     print ("data is loaded...")
 
     # 为训练和测试数据，抽取特征，分别生成特征文件

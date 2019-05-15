@@ -208,7 +208,11 @@ class sklearn_VotingClassifier(Strategy):
         clf2 = svm.LinearSVC()
         clf3 = AdaBoostClassifier()
 
-        self.clf = VotingClassifier(estimators=[('lr', clf1), ('svm', clf2), ('ada', clf3)], voting='hard')
+        clf4 = RandomForestClassifier()
+        clf5 = KNeighborsClassifier(n_neighbors=3)
+        clf6 = GaussianNB()
+        clf7 = tree.DecisionTreeClassifier()
+        self.clf = VotingClassifier(estimators=[('lr', clf1), ('svm', clf2), ('ada', clf3),('rdf',clf4),('knc',clf5),('GNB',clf6),('DT',clf7)], voting='hard')
 
         print("Using %s Classifier" % (self.trainer))
 
@@ -216,14 +220,14 @@ class sklearn_VotingClassifier(Strategy):
         train_X, train_y = load_svmlight_file(train_file_path)
 
         print("==> Train the model ...")
-        self.clf.fit(train_X, train_y)
+        self.clf.fit(train_X.todense(), train_y)
 
 
     def test_model(self, test_file_path, model_path, result_file_path):
 
         print("==> Test the model ...")
         test_X, test_y = load_svmlight_file(test_file_path)
-        pred_y = self.clf.predict(test_X)
+        pred_y = self.clf.predict(test_X.todense())
 
         # write prediction to file
         with open(result_file_path, 'w') as fout:

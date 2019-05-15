@@ -161,10 +161,10 @@ def longest_common_subsequence(a, b):
 
 # 最长公共子串（LSS）
 def longest_common_substring(a, b):
-    m = [[0] * (1 + len(b)) for i in xrange(1 + len(a))]
+    m = [[0] * (1 + len(b)) for i in range(1 + len(a))]
     longest, x_longest = 0, 0
-    for x in xrange(1, 1 + len(a)):
-        for y in xrange(1, 1 + len(b)):
+    for x in range(1, 1 + len(a)):
+        for y in range(1, 1 + len(b)):
             if a[x - 1] == b[y - 1]:
                 m[x][y] = m[x - 1][y - 1] + 1
                 if m[x][y] > longest:

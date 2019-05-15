@@ -1,0 +1,5 @@
+classifier
+model_path
+feature_function_list
+authorIdPaperIds:正样本和负样本
+PaperAuthor：论文作者对，来自paperauthor.csv
